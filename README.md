@@ -1,5 +1,16 @@
 # Serverless REST API Platform — AWS Lambda & DynamoDB
 
+## 🌐 Live API
+
+Base URL: `https://xv4i4e2n4j.execute-api.us-east-1.amazonaws.com`
+
+| Method | Endpoint    | Description    |
+| ------ | ----------- | -------------- |
+| POST   | /tasks      | Create a task  |
+| GET    | /tasks      | List all tasks |
+| GET    | /tasks/{id} | Get a task     |
+| DELETE | /tasks/{id} | Delete a task  |
+
 A fully serverless Task Manager REST API built with AWS Lambda, API Gateway, and DynamoDB. Handles 10,000+ daily requests with sub-200ms latency.
 
 ## Architecture
@@ -57,18 +68,18 @@ npx serverless deploy
 
 ```bash
 # Create a task
-curl -X POST https://YOUR_API_URL/tasks \
+curl -X POSTcurl -X POST https://xv4i4e2n4j.execute-api.us-east-1.amazonaws.com/tasks \
   -H "Content-Type: application/json" \
   -d '{"title": "Build serverless app", "description": "Deploy on AWS Lambda"}'
 
 # List all tasks
-curl https://YOUR_API_URL/tasks
+curl curl -X POST https://xv4i4e2n4j.execute-api.us-east-1.amazonaws.com/tasks
 
 # Get a specific task
-curl https://YOUR_API_URL/tasks/{id}
+curl curl -X POST https://xv4i4e2n4j.execute-api.us-east-1.amazonaws.com/tasks
 
 # Delete a task
-curl -X DELETE https://YOUR_API_URL/tasks/{id}
+curl -X DELETE curl -X POST https://xv4i4e2n4j.execute-api.us-east-1.amazonaws.com/tasks
 ```
 
 ## Key Features

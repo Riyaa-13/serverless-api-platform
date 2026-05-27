@@ -1,7 +1,9 @@
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
-const { v4: uuidv4 } = require("uuid");
+const { randomBytes } = require("crypto");
 
 const client = new DynamoDBClient({ region: process.env.REGION });
+
+const generateId = () => randomBytes(16).toString("hex");
 
 module.exports.handler = async (event) => {
   const body = JSON.parse(event.body);
@@ -14,7 +16,7 @@ module.exports.handler = async (event) => {
   }
 
   const task = {
-    id: { S: uuidv4() },
+    id: { S: generateId() },
     title: { S: body.title },
     description: { S: body.description || "" },
     status: { S: "pending" },
